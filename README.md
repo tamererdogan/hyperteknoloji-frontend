@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# Hyper Teknoloji Frontend – Teknik Değerlendirme Uygulaması
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bu proje, Hyper Teknoloji tarafından gönderilen teknik değerlendirme görevi kapsamında geliştirilmiş basit bir ürün listeleme ve sepet yönetimi uygulamasıdır.
 
-Currently, two official plugins are available:
+Backend tarafı **Laravel**, frontend tarafı **React + Vite** kullanılarak geliştirilmiştir.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Kurulum ve Çalıştırma
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Repository'yi klonlayın
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/tamererdogan/hyperteknoloji-frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. .env dosyasını düzenleyin
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+Proje dizininde bulunan .env dosyasını açıp VITE_API_URL değerine backend'inizin servis edildiği URL'i girin.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Örnek:
+VITE_API_URL=http://localhost:8000/api
 ```
+
+### 3. Proje dizinine geçin
+
+```bash
+cd hyperteknoloji-frontend
+```
+
+### 4. Proje bağımlılıklarını indirin
+
+```bash
+npm install
+```
+
+### 5. Projeyi başlatın
+
+```bash
+npm run dev
+```
+
+Uygulama varsayılan olarak http://localhost:5173 adresinde çalışır.
+
+## 🛒 Sepet Mekanizması
+
+Sepet verilerini kalıcı olarak saklama yöntemi olarak Local Storage kullandım.
+
+### Strateji:
+
+- Sepet Local Storage ile persistent hale getirilmiştir.
+- Sepet React Context üzerinden anlık olarak yönetilir.
+- Ürün ekleme/çıkarma updateQuantity() fonksiyonu ile merkezi olarak yapılır.
+- UI tarafında sepet dropdown olarak ele alınmıştır.
+- Dropdown mobil ve desktop için farklı açılma davranışları sergileyecek şekilde uygulanmıştır.
+
+### Avantajları:
+
+- Expire olmaz
+- Cookie boyut limitine takılmaz
+- Sayfa yenilense bile veri kaybolmaz
+- Büyük JSON objelerini rahatça saklar
+
+## ⚠️ Bilinen Eksiklikler / Sınırlar
+
+- API üzerinden ürün detayları çekilmemiştir.
+- Ürünler kategoriye göre filtrelenecek hale getirilmemiştir.
+- API üzerinde search mekanizması bulunmadığı için entegre edilmemiştir.
+- ListProduct endpoint'i üzerinden totalItem bilgisi gelmediği için sayfalama "Daha fazla yükle" şeklinde yapılmıştır.
