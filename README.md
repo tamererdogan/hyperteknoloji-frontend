@@ -68,3 +68,7 @@ Sepet verilerini kalıcı olarak saklama yöntemi olarak Local Storage kullandı
 - Ürünler kategoriye göre filtrelenecek hale getirilmemiştir.
 - API üzerinde search mekanizması bulunmadığı için entegre edilmemiştir.
 - ListProduct endpoint'i üzerinden totalItem bilgisi gelmediği için sayfalama "Daha fazla yükle" şeklinde yapılmıştır.
+
+## Ekran Görüntüleri
+<img width="1903" height="1301" alt="urunler" src="https://github.com/user-attachments/assets/221d0f5b-64b1-4dee-8b26-e40fa9292202" />
+<img width="1903" height="1301" alt="sepet" src="https://github.com/user-attachments/assets/0356a2cb-584a-4cf6-8da8-237fef5ff070" />
