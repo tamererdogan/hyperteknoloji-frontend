@@ -1,0 +1,23 @@
+:root {
+  --primary: #1b75d1;
+  --primary-hover: #145ca5;
+  --border-color: #e3e3e3;
+  --bg-light: #fafafa;
+  --text-main: #222;
+  --text-muted: #777;
+  --card-radius: 16px;
+  --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: var(--bg-light);
+  color: var(--text-main);
+}
