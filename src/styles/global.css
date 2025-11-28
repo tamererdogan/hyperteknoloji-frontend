@@ -1,3 +1,5 @@
+@import "./layout.css";
+
 :root {
   --primary: #1b75d1;
   --primary-hover: #145ca5;
@@ -7,6 +9,8 @@
   --text-muted: #777;
   --card-radius: 16px;
   --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --header-height: 72px;
+  --footer-height: 40px;
 }
 
 * {
